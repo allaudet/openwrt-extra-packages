@@ -17,7 +17,7 @@ define Package/python-numpy
 	SECTION:=language-python
 	CATEGORY:=Languages
 	SUBMENU:=Python
-	TITLE:=NumPy
+	TITLE:=Python NumPy Module
 	URL:=https://pypi.python.org/pypi/numpy
 	DEPENDS:=+python
 endef

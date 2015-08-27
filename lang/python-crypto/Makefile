@@ -22,7 +22,7 @@ define Package/python-crypto
 	SECTION:=lang-python
 	CATEGORY:=Languages
 	SUBMENU:=Python
-	TITLE:=python-crypto
+	TITLE:=Python Crypto Module
 	URL:=http://www.pycrypto.org/
 	DEPENDS:=+python +libgmp
 endef
