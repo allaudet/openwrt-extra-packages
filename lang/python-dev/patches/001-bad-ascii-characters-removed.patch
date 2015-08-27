@@ -1,0 +1,11 @@
+diff -rupN dev-0.4.0-old/dev/__init__.py dev-0.4.0/dev/__init__.py
+--- a/dev/__init__.py	2015-08-21 14:18:29.243601611 +0200
++++ b/dev/__init__.py	2015-08-21 14:19:32.648077850 +0200
+@@ -1,6 +1,6 @@
+ """
+ 
+-🚧 About
++About
+ --------
+ 
+ dev is a collection of Python developer tools presented as a
