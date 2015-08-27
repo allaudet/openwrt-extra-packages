@@ -7,13 +7,15 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=opencv
+PKG_NAME:=opencv3
 PKG_VERSION:=3.0.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).zip
 PKG_SOURCE_URL:=http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/$(PKG_VERSION)/
 PKG_MD5SUM:=09004c275d8092cbdf5b61675cecd399
+
+PKG_BUILD_DIR:=$(BUILD_DIR)/opencv-$(PKG_VERSION)
 
 PKG_LICENSE:=BSD-3-Clause
 PKG_LICENSE_FILES:=LICENSE
@@ -22,7 +24,7 @@ include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
 
 
-define Package/opencv/Default/description
+define Package/opencv3/Default/description
  OpenCV (Open Source Computer Vision Library) is an open source computer
  vision and machine learning software library. OpenCV was built to provide 
  a common infrastructure for computer vision applications and to accelerate 
@@ -31,7 +33,7 @@ define Package/opencv/Default/description
  and modify the code.
 endef
 
-define Package/opencv
+define Package/opencv3
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=OpenCV-3.0.0
@@ -55,11 +57,11 @@ define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libopencv* $(1)/usr/lib/
 endef
 
-define Package/opencv/install
+define Package/opencv3/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libopencv* $(1)/usr/lib/
 
 endef
 
-$(eval $(call BuildPackage,opencv))
+$(eval $(call BuildPackage,opencv3))
 
