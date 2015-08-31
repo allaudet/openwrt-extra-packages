@@ -20,7 +20,6 @@ PKG_INSTALL:=1
 include $(INCLUDE_DIR)/package.mk
 
 define Package/byobu
-    MAINTAINER:="Xiangfu Liu" <xiangfu@sharism.cc>
     SECTION:=utils
     CATEGORY:=Utilities
     TITLE:=Text-based window manager
