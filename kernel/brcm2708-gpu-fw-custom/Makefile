@@ -23,7 +23,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/brcm2708-gpu-fw-custom
   SECTION:=boot
   CATEGORY:=Boot Loaders
-  DEPENDS:=@TARGET_brcm2708 !@TARGET_brcm2708-gpu-fw
+  DEPENDS:=brcm2708-gpu-fw
   TITLE:=brcm2708-gpu-fw-custom
 endef
 
