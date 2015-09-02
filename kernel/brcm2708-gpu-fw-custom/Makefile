@@ -28,7 +28,7 @@ define Package/brcm2708-gpu-fw-custom
 endef
 
 define Package/brcm2708-gpu-fw-custom/description
- GPU and kernel boot firmware for brcm2708. 
+  GPU and kernel boot firmware for brcm2708.
 endef
 
 define Build/Compile
@@ -36,7 +36,10 @@ define Build/Compile
 endef
 
 define Package/brcm2708-gpu-fw-custom/install
-	true
+	$(INSTALL_DIR) $(1)/opt
+	$(CP) $(PKG_BUILD_DIR)/vc $(1)/opt/
+	$(INSTALL_DIR) $(1)/etc/ld.so.conf.d
+	echo "/opt/vc/lib" > $(1)/etc/ld.so.conf.d/vc.conf
 endef
 
 define Build/InstallDev
