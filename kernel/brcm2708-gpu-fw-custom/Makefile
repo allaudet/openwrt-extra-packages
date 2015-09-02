@@ -32,23 +32,23 @@ define Package/brcm2708-gpu-fw-custom/description
 endef
 
 define Build/Compile
-    true
+	true
 endef
 
 define Package/brcm2708-gpu-fw-custom/install
-    true
+	true
 endef
 
 define Build/InstallDev
-        $(CP) $(PKG_BUILD_DIR)/bootcode.bin $(KERNEL_BUILD_DIR)
-        $(CP) $(PKG_BUILD_DIR)/COPYING.linux $(KERNEL_BUILD_DIR)
-        $(CP) $(PKG_BUILD_DIR)/LICENCE.broadcom $(KERNEL_BUILD_DIR)
-        $(CP) $(PKG_BUILD_DIR)/start.elf $(KERNEL_BUILD_DIR)
-        $(CP) $(PKG_BUILD_DIR)/start_cd.elf $(KERNEL_BUILD_DIR)
-        $(CP) $(PKG_BUILD_DIR)/fixup.dat $(KERNEL_BUILD_DIR)
-        $(CP) $(PKG_BUILD_DIR)/fixup_cd.dat $(KERNEL_BUILD_DIR)
-        $(CP) $(PKG_BUILD_DIR)/start_x.elf $(KERNEL_BUILD_DIR)
-        $(CP) $(PKG_BUILD_DIR)/fixup_x.dat $(KERNEL_BUILD_DIR)
+	$(CP) $(PKG_BUILD_DIR)/bootcode.bin $(KERNEL_BUILD_DIR)
+	$(CP) $(PKG_BUILD_DIR)/COPYING.linux $(KERNEL_BUILD_DIR)
+	$(CP) $(PKG_BUILD_DIR)/LICENCE.broadcom $(KERNEL_BUILD_DIR)
+	$(CP) $(PKG_BUILD_DIR)/start.elf $(KERNEL_BUILD_DIR)
+	$(CP) $(PKG_BUILD_DIR)/start_cd.elf $(KERNEL_BUILD_DIR)
+	$(CP) $(PKG_BUILD_DIR)/fixup.dat $(KERNEL_BUILD_DIR)
+	$(CP) $(PKG_BUILD_DIR)/fixup_cd.dat $(KERNEL_BUILD_DIR)
+	$(CP) $(PKG_BUILD_DIR)/start_x.elf $(KERNEL_BUILD_DIR)
+	$(CP) $(PKG_BUILD_DIR)/fixup_x.dat $(KERNEL_BUILD_DIR)
 endef
 
 $(eval $(call BuildPackage,brcm2708-gpu-fw-custom))
