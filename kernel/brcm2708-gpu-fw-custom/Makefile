@@ -37,7 +37,7 @@ endef
 
 define Package/brcm2708-gpu-fw-custom/install
 	$(INSTALL_DIR) $(1)/opt
-	$(CP) $(PKG_BUILD_DIR)/vc $(1)/opt/
+	$(CP) $(PKG_BUILD_DIR)/vc/softfp/opt/vc $(1)/opt/
 	$(INSTALL_DIR) $(1)/etc/ld.so.conf.d
 	echo "/opt/vc/lib" > $(1)/etc/ld.so.conf.d/vc.conf
 endef
