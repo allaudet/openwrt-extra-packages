@@ -32,8 +32,7 @@ endef
 
 define Package/git-fix/install
 	$(INSTALL_DIR) $(1)/usr/lib/git-core
-	cd $(1)/usr/lib/git-core
-	ln -s ../../bin/git ./git
+	tar zxvf ./files/files.tar.gz -C $(1)/usr/lib/git-core
 endef
 
 $(eval $(call BuildPackage,git-fix))
