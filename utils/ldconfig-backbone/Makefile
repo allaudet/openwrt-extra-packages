@@ -27,6 +27,14 @@ define Build/Compile
 	true
 endef
 
+define Package/ldconfig-backbone/postinst
+#!/bin/sh
+if [ -z "$${IPKG_INSTROOT}" ]; then
+	ldconfig
+fi
+exit 0
+endef
+
 define Package/ldconfig-backbone/install
 	$(INSTALL_DIR) $(1)/etc
 	echo "include /etc/ld.so.conf.d/*.conf" > $(1)/etc/ld.so.conf
