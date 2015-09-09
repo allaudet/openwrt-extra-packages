@@ -17,7 +17,7 @@ define Package/python-rpi-gpio
 	SUBMENU:=Python
 	TITLE:=Module to control RPi GPIO channels
 	URL:=https://pypi.python.org/pypi/RPi.GPIO
-	DEPENDS:=+python
+	DEPENDS:=+python +python-gpio +python-evdev +python-cffi
 endef
 
 define Package/python-rpi-gpio/description
