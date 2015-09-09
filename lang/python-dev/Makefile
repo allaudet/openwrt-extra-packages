@@ -27,9 +27,7 @@ define Package/python-dev/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,\
-		install --prefix="$(PKG_INSTALL_DIR)/usr" \
-	)
+	$(call Build/Compile/PyMod,,install --prefix=/usr --root=$(PKG_INSTALL_DIR))
 endef
 
 define Build/InstallDev
@@ -41,7 +39,9 @@ endef
 
 define PyPackage/python-dev/install
 	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)/
-	$(CP) $(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* $(1)$(PYTHON_PKG_DIR)/
+	$(CP) \
+		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
+		$(1)$(PYTHON_PKG_DIR)/
 endef
 
 $(eval $(call PyPackage,python-dev))

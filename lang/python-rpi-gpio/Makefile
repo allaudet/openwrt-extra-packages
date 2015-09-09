@@ -25,9 +25,21 @@ define Package/python-rpi-gpio/description
 endef
 
 define Build/Compile
-	$(call Build/Compile/PyMod,,\
-		install --prefix="$(PKG_INSTALL_DIR)/usr" \
-	)
+	$(call Build/Compile/PyMod,,install --prefix=/usr --root=$(PKG_INSTALL_DIR))
+endef
+
+define Build/InstallDev
+	$(INSTALL_DIR) $(PYTHON_LIB_DIR)
+	$(CP) \
+		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
+		$(PYTHON_LIB_DIR)
+endef
+
+define PyPackage/python-rpi-gpio/install
+	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)/
+	$(CP) \
+		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
+		$(1)$(PYTHON_PKG_DIR)/
 endef
 
 $(eval $(call PyPackage,python-rpi-gpio))
