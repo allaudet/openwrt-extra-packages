@@ -24,22 +24,15 @@ define Package/python-rpi-gpio/description
   This package provides a class to control the GPIO on a Raspberry Pi.
 endef
 
+TARGET_CPPFLAGS += -I$(PKG_BUILD_DIR)/include
+
 define Build/Compile
-	$(call Build/Compile/PyMod,,install --prefix=/usr --root=$(PKG_INSTALL_DIR))
+	$(call Build/Compile/PyMod,, \
+		install --prefix=/usr --root=$(PKG_INSTALL_DIR))
 endef
 
-define Build/InstallDev
-	$(INSTALL_DIR) $(PYTHON_LIB_DIR)
-	$(CP) \
-		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
-		$(PYTHON_LIB_DIR)
-endef
-
-define PyPackage/python-rpi-gpio/install
-	$(INSTALL_DIR) $(1)$(PYTHON_PKG_DIR)/
-	$(CP) \
-		$(PKG_INSTALL_DIR)$(PYTHON_PKG_DIR)/* \
-		$(1)$(PYTHON_PKG_DIR)/
+define PyPackage/python-smbus/filespec
++|$(PYTHON_PKG_DIR)/GPIO.so
 endef
 
 $(eval $(call PyPackage,python-rpi-gpio))

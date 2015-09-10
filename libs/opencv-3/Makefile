@@ -39,7 +39,7 @@ define Package/opencv3
   TITLE:=OpenCV-3.0.0
   URL:=http://opencv.org/
   MAINTAINER:=WRTnode Team <pub@wrtnode.com>
-  DEPENDS:=+libpthread +librt +libstdcpp +zlib +libjpeg +libpng +libv4l +python-numpy +glib2
+  DEPENDS:=+libpthread +librt +libstdcpp +zlib +libjpeg +libpng +libv4l +glib2
 endef
 
 
