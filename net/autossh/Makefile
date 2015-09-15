@@ -43,7 +43,7 @@ fi
 exit 0
 endef
 
-define Package/mrelay/prerm
+define Package/autossh/prerm
 #!/bin/sh
 if [ -z "$${IPKG_INSTROOT}" ]; then
 	echo "Removing rc.d symlink for autossh"
