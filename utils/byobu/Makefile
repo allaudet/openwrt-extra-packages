@@ -24,7 +24,7 @@ define Package/byobu
     CATEGORY:=Utilities
     TITLE:=Text-based window manager
     URL:=https://launchpad.net/byobu
-    DEPENDS:=+tmux
+    DEPENDS:=+coreutils +coreutils-install +coreutils-tty +tmux +screen
 endef
 
 define Package/byobu/description
