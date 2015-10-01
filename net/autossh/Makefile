@@ -38,7 +38,7 @@ if [ -z "$${IPKG_INSTROOT}" ]; then
 	( . /etc/uci-defaults/luci-autossh ) && rm -f /etc/uci-defaults/luci-autossh
 	chmod 755 /etc/init.d/autossh >/dev/null 2>&1
 	echo "Enabling rc.d symlink for autossh"
-	/etc/init.d/autossh enable >/dev/null 2>&1
+	#/etc/init.d/autossh enable >/dev/null 2>&1
 fi
 exit 0
 endef
@@ -47,7 +47,7 @@ define Package/autossh/prerm
 #!/bin/sh
 if [ -z "$${IPKG_INSTROOT}" ]; then
 	echo "Removing rc.d symlink for autossh"
-	/etc/init.d/autossh disable >/dev/null 2>&1
+	#/etc/init.d/autossh disable >/dev/null 2>&1
 fi
 exit 0
 endef
