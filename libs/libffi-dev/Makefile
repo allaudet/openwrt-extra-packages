@@ -17,7 +17,7 @@ define Package/libffi-dev
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=FFI Development Libraries
-  DEPENDS:=libffi
+  DEPENDS:=+libffi
 endef
 
 define Package/libffi-dev/description
@@ -44,3 +44,4 @@ define Package/libffi-dev/install
 endef
 
 $(eval $(call BuildPackage,libffi-dev))
+

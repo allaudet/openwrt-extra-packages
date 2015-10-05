@@ -13,16 +13,17 @@ PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/libopenssl-dev-$(PKG_VERSION)
 
+include $(INCLUDE_DIR)/package.mk
+
+define Package/libopenssl-dev/Default/description
+  OpenSSL Development Libraries.
+endef
+
 define Package/libopenssl-dev
   SECTION:=libs
   CATEGORY:=Libraries
-  SUBMENU:=SSL
   TITLE:=OpenSSL Development Libraries
-  DEPENDS:=libopenssl
-endef
-
-define Package/libopenssl-dev/description
-  OpenSSL Development Libraries.
+  DEPENDS:=+python
 endef
 
 define Build/Compile
@@ -40,3 +41,4 @@ define Package/libopenssl-dev/install
 endef
 
 $(eval $(call BuildPackage,libopenssl-dev))
+

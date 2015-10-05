@@ -17,11 +17,11 @@ include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
 define Package/python-dev
-	SECTION:=language-python
-	CATEGORY:=Languages
-	SUBMENU:=Python
-	TITLE:=Libraries and tools for Python development
-	DEPENDS:=python
+  SECTION:=language-python
+  CATEGORY:=Languages
+  SUBMENU:=Python
+  TITLE:=Libraries and tools for Python development
+  DEPENDS:=python
 endef
 
 define Package/python-dev/description
@@ -54,3 +54,4 @@ define Package/python-dev/install
 endef
 
 $(eval $(call BuildPackage,python-dev))
+
