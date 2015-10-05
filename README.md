@@ -25,11 +25,12 @@ OpenWrt extra feed packages
 * brcm2708-gpu-fw-custom
 
 ### Language packages
-* python-dev --> developing
+* python-dev
 
 ### Library packages
 * opencv-3
-* libopenssl-dev --> developing
+* libopenssl-dev
+* libffi-dev
 
 ### Network packages
 * autossh
