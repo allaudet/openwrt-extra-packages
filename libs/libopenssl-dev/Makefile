@@ -22,8 +22,9 @@ endef
 define Package/libopenssl-dev
   SECTION:=libs
   CATEGORY:=Libraries
+  SUBMENU:=SSL
   TITLE:=OpenSSL Development Libraries
-  DEPENDS:=+python
+  DEPENDS:=libopenssl
 endef
 
 define Build/Compile

@@ -13,15 +13,15 @@ PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/libffi-dev-$(PKG_VERSION)
 
+define Package/libffi-dev/Default/description
+  Foreign Function Interface (FFI) Development Libraries
+endef
+
 define Package/libffi-dev
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=FFI Development Libraries
-  DEPENDS:=+libffi
-endef
-
-define Package/libffi-dev/description
-  Foreign Function Interface (FFI) Development Libraries
+  DEPENDS:=libffi
 endef
 
 define Build/Compile
@@ -44,4 +44,3 @@ define Package/libffi-dev/install
 endef
 
 $(eval $(call BuildPackage,libffi-dev))
-
