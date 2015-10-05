@@ -11,8 +11,6 @@ PKG_NAME:=python-dev
 PKG_VERSION:=2.7.9
 PKG_RELEASE:=1
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/Python-dev-$(PKG_VERSION)
-
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
 
@@ -35,7 +33,7 @@ endef
 define Package/python-dev/install
 	$(INSTALL_DIR) $(1)/usr/include/
 	$(CP) \
-		$(PKG_BUILD_DIR)/../Python-$(PKG_VERSION)/ipkg-install/usr/include/python$(PYTHON_VERSION) \
+		$(BUILD_DIR)/Python-$(PKG_VERSION)/ipkg-install/usr/include/python$(PYTHON_VERSION) \
 		$(1)/usr/include/
 	$(INSTALL_DIR) $(1)/usr/lib/
 	$(CP) \
@@ -49,7 +47,7 @@ define Package/python-dev/install
 		$(1)/usr/lib/pkgconfig
 	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)/
 	$(CP) \
-		$(PKG_BUILD_DIR)/../Python-$(PKG_VERSION)/ipkg-install/usr/lib/python$(PYTHON_VERSION)/config \
+		$(BUILD_DIR)/Python-$(PKG_VERSION)/ipkg-install/usr/lib/python$(PYTHON_VERSION)/config \
 		$(1)/usr/lib/python$(PYTHON_VERSION)/
 endef
 
