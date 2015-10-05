@@ -22,7 +22,7 @@ endef
 define Package/libopenssl-dev
   SECTION:=libs
   CATEGORY:=Libraries
-  #SUBMENU:=SSL
+  SUBMENU:=SSL
   TITLE:=OpenSSL Development Libraries
   DEPENDS:=libopenssl
 endef

@@ -8,20 +8,20 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libffi-dev
-PKG_VERSION:=3.0.13
+PKG_VERSION:=1.0.2d
 PKG_RELEASE:=1
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/libffi-dev-$(PKG_VERSION)
+include $(INCLUDE_DIR)/package.mk
 
 define Package/libffi-dev/Default/description
-  Foreign Function Interface (FFI) Development Libraries
+  OpenSSL Development Libraries.
 endef
 
 define Package/libffi-dev
   SECTION:=libs
   CATEGORY:=Libraries
-  TITLE:=FFI Development Libraries
-  DEPENDS:=libffi
+  TITLE:=OpenSSL Development Libraries
+  DEPENDS:=+python
 endef
 
 define Build/Compile
@@ -29,18 +29,8 @@ define Build/Compile
 endef
 
 define Package/libffi-dev/install
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) \
-		$(PKG_BUILD_DIR)/../libffi-$(PKG_VERSION)/ipkg-install/usr/lib/libffi.{so,a,la} \
-		$(1)/usr/lib/
-	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
-	$(CP) \
-		$(PKG_BUILD_DIR)/../libffi-$(PKG_VERSION)/ipkg-install/usr/lib/pkgconfig/* \
-		$(1)/usr/lib/pkgconfig/
-	$(INSTALL_DIR) $(1)/usr/include
-	$(CP) \
-		$(PKG_BUILD_DIR)/../libffi-$(PKG_VERSION)/ipkg-install/usr/lib/libffi-$(PKG_VERSION)/include/*.h \
-		$(1)/usr/include/
+	false
 endef
 
 $(eval $(call BuildPackage,libffi-dev))
+
