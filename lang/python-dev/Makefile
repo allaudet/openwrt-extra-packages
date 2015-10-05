@@ -45,10 +45,10 @@ define Package/python-dev/install
 		$(STAGING_DIR_HOST)/lib/pkgconfig/python2.pc \
 		$(STAGING_DIR_HOST)/lib/pkgconfig/python-$(PYTHON_VERSION).pc \
 		$(1)/usr/lib/pkgconfig
-	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)/config
+	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)
 	$(CP) \
 		$(BUILD_DIR)/Python-$(PKG_VERSION)/ipkg-install/usr/lib/python$(PYTHON_VERSION)/config \
-		$(1)/usr/lib/python$(PYTHON_VERSION)/config/
+		$(1)/usr/lib/python$(PYTHON_VERSION)/
 endef
 
 $(eval $(call BuildPackage,python-dev))
