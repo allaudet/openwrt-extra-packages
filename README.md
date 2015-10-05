@@ -20,15 +20,22 @@ OpenWrt extra feed packages
   ```
 
 ## Package List
+
+### Kernel packages
+* brcm2708-gpu-fw-custom
+
 ### Language packages
-* python-crypto
-* python-dev
-* python-numpy
-* python-rpi-gpio
+* python-dev --> developing
 
 ### Library packages
 * opencv-3
+* libopenssl-dev --> developing
+
+### Network packages
+* autossh
+* git-fix
 
 ### Utility packages
 * byobu
 * i2c-tools
+* ldconfig-backbone
