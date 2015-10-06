@@ -15,7 +15,7 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://mercurial.selenic.com/release
 PKG_MD5SUM:=47461349624dc83b33b2b038242f104b
 
-PKG_BUILD_DEPENDS:=python-mini
+PKG_BUILD_DEPENDS:=python
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
