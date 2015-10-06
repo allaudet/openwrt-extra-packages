@@ -35,16 +35,15 @@ define Package/mercurial/description
 endef
 
 define Build/Compile
-        $(call Build/Compile/PyMod,, \
-                install --prefix="$(PKG_INSTALL_DIR)", \
-    )
+	$(call Build/Compile/PyMod,, \
+		install --prefix=$(PKG_INSTALL_DIR))
 endef
 
 define Package/mercurial/install
-        $(INSTALL_DIR) $(1)/usr/bin
-        $(INSTALL_DIR) $(1)/usr/lib
-        $(CP) $(PKG_INSTALL_DIR)/bin $(1)/usr/
-        $(CP) $(PKG_INSTALL_DIR)/lib $(1)/usr/
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(CP) $(PKG_INSTALL_DIR)/bin $(1)/usr/
+	$(CP) $(PKG_INSTALL_DIR)/lib $(1)/usr/
 endef
 
 $(eval $(call BuildPackage,mercurial))
