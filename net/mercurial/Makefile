@@ -23,7 +23,7 @@ $(call include_mk, python-package.mk)
 define Package/mercurial
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+python
+  DEPENDS:=+python +python-dev
   TITLE:=Mercurial Source Control Management (SCM) system
   URL:=http://mercurial.selenic.com/
   SUBMENU:=Version Control Systems
