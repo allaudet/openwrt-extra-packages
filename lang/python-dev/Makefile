@@ -31,24 +31,17 @@ define Build/Compile
 endef
 
 define Package/python-dev/install
+	#
+	# Libraries
+	#
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) \
 		$(BUILD_DIR)/Python-$(PKG_VERSION)/ipkg-install/usr/include/python$(PYTHON_VERSION) \
 		$(1)/usr/include/
-	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)/host
-	$(CP) \
-		$(STAGING_DIR_HOST)/lib/python$(PYTHON_VERSION) \
-		$(1)/usr/lib/python$(PYTHON_VERSION)/host/
-	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
-	$(CP) \
-		$(STAGING_DIR_HOST)/lib/pkgconfig/python.pc \
-		$(STAGING_DIR_HOST)/lib/pkgconfig/python2.pc \
-		$(STAGING_DIR_HOST)/lib/pkgconfig/python-$(PYTHON_VERSION).pc \
-		$(1)/usr/lib/pkgconfig
-	$(INSTALL_DIR) $(1)/usr/lib/python$(PYTHON_VERSION)
-	$(CP) \
-		$(BUILD_DIR)/Python-$(PKG_VERSION)/ipkg-install/usr/lib/python$(PYTHON_VERSION)/config \
-		$(1)/usr/lib/python$(PYTHON_VERSION)/
+	#
+	# Host Python modules (only *.py)
+	#
+	# TODO : Now solved on python package itself
 endef
 
 $(eval $(call BuildPackage,python-dev))
