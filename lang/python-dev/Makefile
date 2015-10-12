@@ -42,6 +42,10 @@ define Package/python-dev/install
 	# Host Python modules (only *.py)
 	#
 	# TODO : Now solved on python package itself
+	#define PyPackage/python-base/install
+	#	$(INSTALL_DIR) $(1)/usr/lib/
+	#	cp -npr $(STAGING_DIR_HOST)/lib/python$(PYTHON_VERSION) $(1)/usr/lib
+	#	...
 endef
 
 $(eval $(call BuildPackage,python-dev))
