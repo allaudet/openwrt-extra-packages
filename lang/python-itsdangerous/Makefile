@@ -24,7 +24,7 @@ define Package/python-itsdangerous
 	SECTION:=language-python
 	CATEGORY:=Languages
 	SUBMENU:=Python
-	TITLE:=Pass trusted data to untrusted environments and back.
+	TITLE:=Trusted data to untrusted environments.
 	URL:=https://pypi.python.org/pypi/itsdangerous/
 	DEPENDS:=+python
 endef
