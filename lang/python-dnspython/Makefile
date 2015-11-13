@@ -11,7 +11,7 @@ PKG_NAME:=python-dnspython
 PKG_VERSION:=1.12.0
 PKG_RELEASE:=1
 
-PKG_SOURCE:=dnspython-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=dnspython-$(PKG_VERSION).zip
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/d/dnspython/
 PKG_MD5SUM:=b3b90c940ab5f77a1e96313263c6d288
 
