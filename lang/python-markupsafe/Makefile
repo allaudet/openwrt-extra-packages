@@ -15,7 +15,7 @@ PKG_SOURCE:=MarkupSafe-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/M/MarkupSafe/
 PKG_MD5SUM:=f5ab3deee4c37cd6a922fb81e730da6e
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/markupsafe-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/MarkupSafe-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)

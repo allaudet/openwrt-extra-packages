@@ -15,7 +15,7 @@ PKG_SOURCE:=Flask-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/F/Flask/
 PKG_MD5SUM:=378670fe456957eb3c27ddaef60b2b24
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/flask-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/Flask-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)

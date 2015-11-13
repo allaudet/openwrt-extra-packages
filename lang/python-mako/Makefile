@@ -15,7 +15,7 @@ PKG_SOURCE:=Mako-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/M/Mako/
 PKG_MD5SUM:=a78f20f6366a8a0659ce5532f8614e53
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/mako-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/Mako-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 $(call include_mk, python-package.mk)
