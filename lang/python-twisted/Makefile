@@ -11,7 +11,7 @@ PKG_NAME:=python-twisted
 PKG_VERSION:=15.4.0
 PKG_RELEASE:=1
 
-PKG_SOURCE:=Twisted-$(PKG_VERSION).tar.gz
+PKG_SOURCE:=Twisted-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/T/Twisted/
 PKG_MD5SUM:=5337ffb6aeeff3790981a2cd56db9655
 
