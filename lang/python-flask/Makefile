@@ -24,7 +24,7 @@ define Package/python-flask
 	SECTION:=language-python
 	CATEGORY:=Languages
 	SUBMENU:=Python
-	TITLE:=A microframework based on Werkzeug, Jinja2 and good intentions
+	TITLE:=A microframework based on Werkzeug and Jinja2
 	URL:=https://pypi.python.org/pypi/Flask/
 	DEPENDS:=+python +python-jinja2 +python-werkzeug +python-itsdangerous
 endef
