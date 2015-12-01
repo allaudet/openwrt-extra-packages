@@ -39,7 +39,7 @@ define Package/libffi-dev/install
 		$(1)/usr/lib/pkgconfig/
 	$(INSTALL_DIR) $(1)/usr/include
 	$(CP) \
-		$(BUILD_DIR)/libffi-$(PKG_VERSION)/ipkg-install/usr/lib/libffi-$(PKG_VERSION)/include/*.h \
+		$(BUILD_DIR)/libffi-$(PKG_VERSION)/ipkg-install/usr/include/*.h \
 		$(1)/usr/include/
 endef
 
