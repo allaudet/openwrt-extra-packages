@@ -21,7 +21,7 @@ define Package/libffi-dev
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=FFI Development Libraries
-  DEPENDS:=libffi
+  DEPENDS:=+libffi
 endef
 
 define Build/Compile
