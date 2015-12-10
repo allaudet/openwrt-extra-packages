@@ -26,7 +26,7 @@ define Package/python-markupsafe
 	SUBMENU:=Python
 	TITLE:=Markup safe string for Python
 	URL:=https://pypi.python.org/pypi/MarkupSafe/
-	DEPENDS:=+python
+	DEPENDS:=+python +python-setuptools
 endef
 
 define Package/python-markupsafe/description
