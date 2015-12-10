@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libopenssl-dev
-PKG_VERSION:=1.0.2d
+PKG_VERSION:=1.0.2e
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
@@ -31,11 +31,15 @@ endef
 
 define Package/libopenssl-dev/install
 	$(INSTALL_DIR)  $(1)/usr/lib
-	$(CP) $(BUILD_DIR)/openssl-$(PKG_VERSION)/ipkg-install/usr/lib/lib{crypto,ssl}.{a,so} $(1)/usr/lib/
-	$(INSTALL_DIR) $(1)/usr/include
-	$(CP) $(BUILD_DIR)/openssl-$(PKG_VERSION)/ipkg-install/usr/include/openssl $(1)/usr/include/
-	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
-	$(CP) $(BUILD_DIR)/openssl-$(PKG_VERSION)/ipkg-install/usr/lib/pkgconfig/{openssl,libcrypto,libssl}.pc $(1)/usr/lib/pkgconfig/
+	$(INSTALL_DIR)  $(1)/usr/include
+	$(INSTALL_DIR)  $(1)/usr/lib/pkgconfig
+
+	$(CP) $(BUILD_DIR)/openssl-$(PKG_VERSION)/ipkg-install/usr/lib/lib{crypto,ssl}.{a,so} \
+		$(1)/usr/lib/
+	$(CP) $(BUILD_DIR)/openssl-$(PKG_VERSION)/ipkg-install/usr/include/openssl \
+		$(1)/usr/include/
+	$(CP) $(BUILD_DIR)/openssl-$(PKG_VERSION)/ipkg-install/usr/lib/pkgconfig/{openssl,libcrypto,libssl}.pc \
+		$(1)/usr/lib/pkgconfig/
 	[ -n "$(TARGET_LDFLAGS)" ] && $(SED) 's#$(TARGET_LDFLAGS)##g' $(1)/usr/lib/pkgconfig/{openssl,libcrypto,libssl}.pc || true
 endef
 
