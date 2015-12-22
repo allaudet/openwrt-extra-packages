@@ -19,7 +19,7 @@ define Package/python-dev
   CATEGORY:=Languages
   SUBMENU:=Python
   TITLE:=Libraries and tools for Python development
-  DEPENDS:=python
+  DEPENDS:=+python
 endef
 
 define Package/python-dev/description
