@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=python-rpi.gpio
-PKG_VERSION:=0.5.11
+PKG_VERSION:=0.6.1
 PKG_RELEASE:=1
 
 PKG_SOURCE:=RPi.GPIO-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://pypi.python.org/packages/source/R/RPi.GPIO/
-PKG_MD5SUM:=9dc3dab6ce2b7ccb833a866efb392821
+PKG_MD5SUM:=254d0443a436eb241367c487274e7197
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/RPi.GPIO-$(PKG_VERSION)
 
