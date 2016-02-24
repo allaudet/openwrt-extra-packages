@@ -1,11 +1,12 @@
-# 
-# Copyright (C) 2012-2015 OpenWrt.org
+#
+# Copyright (C) 2015-2016 Nakima.es
 #
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
+
 include $(TOPDIR)/rules.mk
-include $(INCLUDE_DIR)/kernel.mk
+#include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=brcm2708-gpu-fw-custom
 PKG_REV:=d3e6f4a27d87c5229ad6c74fa9022a9451046add
@@ -23,6 +24,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/brcm2708-gpu-fw-custom
   SECTION:=boot
   CATEGORY:=Boot Loaders
+  MAINTAINER:=Adrià Llaudet	<allaudet@nakima.es>
   DEPENDS:=@(!PACKAGE_brcm2708-gpu-fw) +ldconfig +ldconfig-backbone
   TITLE:=brcm2708-gpu-fw-custom
 endef
