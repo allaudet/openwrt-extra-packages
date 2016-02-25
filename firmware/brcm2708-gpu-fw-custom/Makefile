@@ -6,7 +6,7 @@
 #
 
 include $(TOPDIR)/rules.mk
-#include $(INCLUDE_DIR)/kernel.mk
+include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=brcm2708-gpu-fw-custom
 PKG_REV:=d3e6f4a27d87c5229ad6c74fa9022a9451046add
