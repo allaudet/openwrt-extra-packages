@@ -130,6 +130,7 @@ manufacturer=Realtek
 
 auth_algs=1
 ignore_broadcast_ssid=0
+macaddr_acl=0
 
 channel=$channel
 
@@ -198,6 +199,40 @@ wpa=2
 wpa_passphrase=$key
 wpa_key_mgmt=WPA-PSK
 wpa_pairwise=CCMP
+
+beacon_int=100
+wpa_group_rekey=86400
+ht_capab=[SHORT-GI-20][SHORT-GI-40]
+max_num_sta=8
+
+rts_threshold=2347
+fragm_threshold=2346
+
+wmm_enabled=1
+
+wmm_ac_be_acm=0
+wmm_ac_be_aifs=3
+wmm_ac_be_cwmax=10
+wmm_ac_be_cwmin=4
+wmm_ac_be_txop_limit=0
+
+wmm_ac_bk_acm=0
+wmm_ac_bk_aifs=7
+wmm_ac_bk_cwmax=10
+wmm_ac_bk_cwmin=4
+wmm_ac_bk_txop_limit=0
+
+wmm_ac_vi_acm=0
+wmm_ac_vi_aifs=2
+wmm_ac_vi_cwmax=4
+wmm_ac_vi_cwmin=3
+wmm_ac_vi_txop_limit=94
+
+wmm_ac_vo_acm=0
+wmm_ac_vo_aifs=2
+wmm_ac_vo_cwmax=3
+wmm_ac_vo_cwmin=2
+wmm_ac_vo_txop_limit=47
 EOF
 }
 
