@@ -12,7 +12,7 @@ define KernelPackage/kernel-mac80211
   SUBMENU:=Wireless Drivers
   TITLE:=Kernel Wireless
   MAINTAINER:=Adrià Llaudet <allaudet@nakima.es>
-  DEPENDS:=+@DRIVER_11N_SUPPORT
+  DEPENDS:=+@DRIVER_11N_SUPPORT +kmod-rfkill +kmod-crypto-aead
   KCONFIG:=CONFIG_CFG80211=m \
     CONFIG_NL80211_TESTMODE=n CONFIG_CFG80211_REG_DEBUG=n \
     CONFIG_CFG80211_DEVELOPER_WARNINGS=n \
