@@ -12,10 +12,10 @@ init_wireless_driver "$@"
 
 drv_rtl871xdrv_cleanup() {
     echo "rtl871xdrv: Cleaning up" > /dev/kmsg
-    killall hostapd >/dev/null 2>&1
-    killall wpa_supplicant >/dev/null 2>&1
+    #killall hostapd >/dev/null 2>&1
+    #killall wpa_supplicant >/dev/null 2>&1
 
-    ifconfig wlan0 0.0.0.0 2>/dev/null
+    #ifconfig wlan0 0.0.0.0 2>/dev/null
 
     sleep 1
 }
