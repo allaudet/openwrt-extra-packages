@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libopenssl-dev
-PKG_VERSION:=1.0.2f
+PKG_VERSION:=1.0.2g
 PKG_RELEASE:=1
 
 include $(INCLUDE_DIR)/package.mk
