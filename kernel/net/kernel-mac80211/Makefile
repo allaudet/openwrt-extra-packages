@@ -1,14 +1,14 @@
 include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
-PKG_NAME:=kernel-wireless
+PKG_NAME:=kernel-mac80211
 PKG_RELEASE:=1
 
 PKG_BUILD_PARALLEL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
-define KernelPackage/kernel-wireless
+define KernelPackage/kernel-mac80211
   SUBMENU:=Wireless Drivers
   TITLE:=Kernel Wireless
   FILES:= \
@@ -36,10 +36,10 @@ define KernelPackage/kernel-wireless
 endef
 
 MAKE_OPTS:= \
-        ARCH="$(LINUX_KARCH)" \
-        CROSS_COMPILE="$(TARGET_CROSS)" \
-        USER_EXTRA_CFLAGS="-DCONFIG_LITTLE_ENDIAN" \
-        KSRC=$(LINUX_DIR)
+	ARCH="$(LINUX_KARCH)" \
+	CROSS_COMPILE="$(TARGET_CROSS)" \
+	USER_EXTRA_CFLAGS="-DCONFIG_LITTLE_ENDIAN" \
+	KSRC=$(LINUX_DIR)
 
 define Build/Compile
 	$(MAKE) -C "$(LINUX_DIR)" \
@@ -47,7 +47,7 @@ define Build/Compile
 		modules
 endef
 
-define KernelPackage/kernel-wireless/description
+define KernelPackage/kernel-mac80211/description
   This package includes a non 'compat-wireless' version
   of cfg80211.ko and mac80211.ko (i.e. the stock kernel version)
   so do not build with the openwrt
@@ -57,7 +57,7 @@ define KernelPackage/kernel-wireless/description
   enable the nl80211 support in all the wireless tools.
 endef
 
-define KernelPackage/kernel-wireless/install
+define KernelPackage/kernel-mac80211/install
 	$(INSTALL_DIR) $(1)/lib/wifi $(1)/lib/netifd/wireless
 	$(INSTALL_DATA) \
 		$(TOPDIR)/package/kernel/mac80211/files/lib/wifi/mac80211.sh \
@@ -67,4 +67,4 @@ define KernelPackage/kernel-wireless/install
 		$(1)/lib/netifd/wireless
 endef
 
-$(eval $(call KernelPackage,kernel-wireless))
+$(eval $(call KernelPackage,kernel-mac80211))
