@@ -30,7 +30,8 @@ define KernelPackage/kernel-wireless
     CONFIG_MAC80211_DEBUGFS=n CONFIG_MAC80211_DEBUG_MENU=n \
     CONFIG_MAC80211_HWSIM=n \
     CONFIG_RTL8192CU=n CONFIG_WL1251=n \
-    CONFIG_WL12XX_MENU=n
+    CONFIG_WL12XX_MENU=n \
+    CONFIG_RSI_91X=n \
   AUTOLOAD:=$(call AutoLoad,20, cfg80211 mac80211)
 endef
 
@@ -59,10 +60,10 @@ endef
 define KernelPackage/kernel-wireless/install
 	$(INSTALL_DIR) $(1)/lib/wifi $(1)/lib/netifd/wireless
 	$(INSTALL_DATA) \
-		$(TOPDIR)/package/mac80211/files/lib/wifi/mac80211.sh \
+		$(TOPDIR)/package/kernel/mac80211/files/lib/wifi/mac80211.sh \
 		$(1)/lib/wifi/
 	$(INSTALL_BIN) \
-		$(TOPDIR)/package/mac80211/files/lib/netifd/wireless/mac80211.sh \
+		$(TOPDIR)/package/kernel/mac80211/files/lib/netifd/wireless/mac80211.sh \
 		$(1)/lib/netifd/wireless
 endef
 
