@@ -11,9 +11,6 @@ include $(INCLUDE_DIR)/package.mk
 define KernelPackage/kernel-mac80211
   SUBMENU:=Wireless Drivers
   TITLE:=Kernel Wireless
-  FILES:= \
-    $(LINUX_DIR)/net/wireless/cfg80211.ko \
-    $(LINUX_DIR)/net/mac80211/mac80211.ko
   MAINTAINER:=Adrià Llaudet <allaudet@nakima.es>
   DEPENDS:=+@DRIVER_11N_SUPPORT
   KCONFIG:=CONFIG_CFG80211=m \
@@ -31,8 +28,21 @@ define KernelPackage/kernel-mac80211
     CONFIG_MAC80211_HWSIM=n \
     CONFIG_RTL8192CU=n CONFIG_WL1251=n \
     CONFIG_WL12XX_MENU=n \
-    CONFIG_RSI_91X=n \
+    CONFIG_RSI_91X=n
+  FILES:= \
+    $(LINUX_DIR)/net/wireless/cfg80211.ko \
+    $(LINUX_DIR)/net/mac80211/mac80211.ko
   AUTOLOAD:=$(call AutoLoad,20, cfg80211 mac80211)
+endef
+
+define KernelPackage/kernel-mac80211/description
+  This package includes a non 'compat-wireless' version
+  of cfg80211.ko and mac80211.ko (i.e. the stock kernel version)
+  so do not build with the openwrt
+  kmod-cfg80211 or kmod-mac80211 packages built into the image
+  (they'll still have to be compiled as modules though).
+  Enabling kmod-mac80211 as a module is required to
+  enable the nl80211 support in all the wireless tools.
 endef
 
 MAKE_OPTS:= \
@@ -45,16 +55,6 @@ define Build/Compile
 	$(MAKE) -C "$(LINUX_DIR)" \
 		$(MAKE_OPTS) \
 		modules
-endef
-
-define KernelPackage/kernel-mac80211/description
-  This package includes a non 'compat-wireless' version
-  of cfg80211.ko and mac80211.ko (i.e. the stock kernel version)
-  so do not build with the openwrt
-  kmod-cfg80211 or kmod-mac80211 packages built into the image
-  (they'll still have to be compiled as modules though).
-  Enabling kmod-mac80211 as a module is required to
-  enable the nl80211 support in all the wireless tools.
 endef
 
 define KernelPackage/kernel-mac80211/install
