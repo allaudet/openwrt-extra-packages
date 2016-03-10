@@ -8,15 +8,15 @@
 include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
-PKG_NAME:=rtl871X
+PKG_NAME:=rtl871x
 PKG_VERSION:=v4.3.0.8_13968.20150417
 PKG_RELEASE:=1
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
 
-define KernelPackage/rtl871X
+define KernelPackage/rtl871x
   SUBMENU:=Wireless Drivers
   TITLE:=TL-WN725N V2 (RTL871X)
   MAINTAINER:=Adria Llaudet <allaudet@nakima.es>
@@ -27,13 +27,13 @@ define KernelPackage/rtl871X
   AUTOLOAD:=$(call AutoLoad,50, 8188eu rtw_power_mgnt=0 rtw_enusbss=0)
 endef
 
-define KernelPackage/rtl871X/description
+define KernelPackage/rtl871x/description
   TP-LINK Drivers with 8188EUS support
 endef
 
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
-	$(CP) ./Driver/* $(PKG_BUILD_DIR)/
+	$(CP) ./src/* $(PKG_BUILD_DIR)/
 endef
 
 MAKE_OPTS:= \
@@ -46,4 +46,4 @@ define Build/Compile
 	$(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR) $(MAKE_OPTS)
 endef
 
-$(eval $(call KernelPackage,rtl871X))
+$(eval $(call KernelPackage,rtl871x))
