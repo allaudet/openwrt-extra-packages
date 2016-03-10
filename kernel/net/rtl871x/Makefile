@@ -24,7 +24,6 @@ define KernelPackage/rtl871x
   DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-cfg80211
   KCONFIG:=
   FILES:= $(PKG_BUILD_DIR)/8188eu.ko
-  AUTOLOAD:=$(call AutoLoad,50, 8188eu rtw_power_mgnt=0 rtw_enusbss=0)
 endef
 
 define KernelPackage/rtl871x/description
@@ -44,6 +43,11 @@ MAKE_OPTS:= \
 
 define Build/Compile
 	$(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR) $(MAKE_OPTS)
+endef
+
+define KernelPackage/rtl871x/install
+	$(INSTALL_DIR) $(1)/etc/modules.d/
+	echo "8188eu rtw_power_mgnt=0 rtw_enusbss=0" > $(1)/etc/modules.d/50-8188eu
 endef
 
 $(eval $(call KernelPackage,rtl871x))
