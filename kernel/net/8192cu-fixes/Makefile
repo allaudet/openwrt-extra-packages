@@ -29,7 +29,6 @@ define KernelPackage/8192cu-fixes
   DEPENDS:=+@DRIVER_11N_SUPPORT @USB_SUPPORT +@DRIVER_WEXT_SUPPORT +kmod-usb-core +kmod-kernel-wireless +hostapd-rtl871xdrv +rtl8192cu-firmware
   KCONFIG:=
   FILES:= $(PKG_BUILD_DIR)/8192cu.ko
-  AUTOLOAD:=$(call AutoLoad,50, 8192cu rtw_power_mgnt=0 rtw_enusbss=0)
 endef
 
 define KernelPackage/8192cu-fixes/description
@@ -44,6 +43,11 @@ MAKE_OPTS:= \
 
 define Build/Compile
 	$(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR) $(MAKE_OPTS)
+endef
+
+define KernelPackage/8192cu-fixes/install
+	$(INSTALL_DIR) $(1)/etc/modules.d/
+	echo "8192cu rtw_power_mgnt=0 rtw_enusbss=0" > $(1)/etc/modules.d/50-8192cu
 endef
 
 $(eval $(call KernelPackage,8192cu-fixes))

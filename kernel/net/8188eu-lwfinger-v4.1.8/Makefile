@@ -29,7 +29,6 @@ define KernelPackage/8188eu-lwfinger-v4.1.8
   DEPENDS:=@USB_SUPPORT +r8188eu-firmware +kmod-usb-core +kmod-kernel-wireless
   KCONFIG:=
   FILES:= $(PKG_BUILD_DIR)/8188eu.ko
-  AUTOLOAD:=$(call AutoLoad,50, 8188eu rtw_power_mgnt=0 rtw_enusbss=0)
 endef
 
 define KernelPackage/8188eu-lwfinger-v4.1.8/description
@@ -45,6 +44,11 @@ MAKE_OPTS:= \
 
 define Build/Compile
 	$(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR) $(MAKE_OPTS)
+endef
+
+define KernelPackage/8188eu-lwfinger-v4.1.8/install
+	$(INSTALL_DIR) $(1)/etc/modules.d/
+	echo "8188eu rtw_power_mgnt=0 rtw_enusbss=0" > $(1)/etc/modules.d/50-8188eu
 endef
 
 $(eval $(call KernelPackage,8188eu-lwfinger-v4.1.8))
