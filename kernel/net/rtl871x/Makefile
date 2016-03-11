@@ -21,7 +21,7 @@ define KernelPackage/rtl871x
   TITLE:=TL-WN725N V2 (RTL871X)
   MAINTAINER:=Adria Llaudet <allaudet@nakima.es>
   URL:=http://www.tp-link.es/download/TL-WN725N.html#Driver
-  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-cfg80211
+  DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-kernel-wireless
   KCONFIG:=
   FILES:= $(PKG_BUILD_DIR)/8188eu.ko
 endef
