@@ -32,7 +32,7 @@ define KernelPackage/kernel-wireless
   FILES:= \
     $(LINUX_DIR)/net/wireless/cfg80211.ko \
     $(LINUX_DIR)/net/mac80211/mac80211.ko
-  AUTOLOAD:=$(call AutoLoad,20, cfg80211 mac80211)
+  AUTOLOAD:=$(call AutoLoad,21, cfg80211 mac80211)
 endef
 
 define KernelPackage/kernel-wireless/description
