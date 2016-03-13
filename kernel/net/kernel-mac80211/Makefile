@@ -59,12 +59,12 @@ endef
 
 define KernelPackage/kernel-wireless/install
 	$(INSTALL_DIR) $(1)/lib/wifi $(1)/lib/netifd/wireless
-	$(INSTALL_DATA) \
-		$(TOPDIR)/package/kernel/mac80211/files/lib/wifi/mac80211.sh \
-		$(1)/lib/wifi/
 	$(INSTALL_BIN) \
-		$(TOPDIR)/package/kernel/mac80211/files/lib/netifd/wireless/mac80211.sh \
+		./files/netifd/mac80211.sh \
 		$(1)/lib/netifd/wireless
+	$(INSTALL_DATA) \
+		./files/wifi/mac80211.sh \
+		$(1)/lib/wifi/
 endef
 
 define KernelPackage/mac80211-kernel/Default
