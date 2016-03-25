@@ -12,7 +12,8 @@ define KernelPackage/kernel-wireless
   SUBMENU:=Wireless Drivers
   TITLE:=Kernel Wireless
   MAINTAINER:=Adrià Llaudet <allaudet@nakima.es>
-  DEPENDS:=+@DRIVER_11N_SUPPORT +@DRIVER_WEXT_SUPPORT +kmod-rfkill +kmod-crypto-aead
+  DEPENDS:=+@DRIVER_11N_SUPPORT +@DRIVER_WEXT_SUPPORT \
+    +kmod-rfkill +kmod-crypto-aead
   KCONFIG:=CONFIG_CFG80211=m \
     CONFIG_NL80211_TESTMODE=n CONFIG_CFG80211_REG_DEBUG=n \
     CONFIG_CFG80211_DEVELOPER_WARNINGS=n \
@@ -71,20 +72,25 @@ define KernelPackage/kernel-wireless/install
 		$(1)/lib/wifi/
 endef
 
-define KernelPackage/mac80211-kernel/Default
+#
+# Kernel Dongle Driver Modules
+#
+
+define KernelPackage/kernel-mac80211/Default
   SUBMENU:=Wireless Drivers
   URL:=http://linuxwireless.org/
   MAINTAINER:=Adrià Llaudet <allaudet@nakima.es>
 endef
 
-define KernelPackage/rt2x00-kernel/Default
-$(call KernelPackage/mac80211-kernel/Default)
-  TITLE:=Kernel Ralink Drivers for RT2x00 cards
+define KernelPackage/kernel-rt2x00/Default
+$(call KernelPackage/kernel-mac80211/Default)
+  TITLE:=Ralink Drivers for RT2x00 cards
 endef
 
-define KernelPackage/rt2x00-lib-kernel
-$(call KernelPackage/rt2x00-kernel/Default)
-  DEPENDS+= @(PCI_SUPPORT||USB_SUPPORT||TARGET_ramips) +kmod-kernel-wireless +kmod-lib-crc-itu-t
+define KernelPackage/kernel-rt2x00-lib
+$(call KernelPackage/kernel-rt2x00/Default)
+  DEPENDS+= @(PCI_SUPPORT||USB_SUPPORT||TARGET_ramips) \
+    +kmod-kernel-wireless +kmod-lib-crc-itu-t
   TITLE+= (LIB)
   FILES:=$(LINUX_DIR)/drivers/net/wireless/rt2x00/rt2x00lib.ko
   AUTOLOAD:=$(call AutoLoad,25,rt2x00lib)
@@ -96,27 +102,29 @@ $(call KernelPackage/rt2x00-kernel/Default)
     CONFIG_RT2500USB=n CONFIG_RT73USB=n
 endef
 
-define KernelPackage/rt2x00-usb-kernel
-$(call KernelPackage/rt2x00-kernel/Default)
-  DEPENDS+= @USB_SUPPORT +kmod-rt2x00-lib-kernel +kmod-usb-core
+define KernelPackage/kernel-rt2x00-usb
+$(call KernelPackage/kernel-rt2x00/Default)
+  DEPENDS+= @USB_SUPPORT +kmod-kernel-rt2x00-lib +kmod-usb-core
   TITLE+= (USB)
   FILES:=$(LINUX_DIR)/drivers/net/wireless/rt2x00/rt2x00usb.ko
   AUTOLOAD:=$(call AutoLoad,26,rt2x00usb)
   KCONFIG:=CONFIG_RT2X00_LIB_USB=m
 endef
 
-define KernelPackage/rt2800-lib-kernel
-$(call KernelPackage/rt2x00-kernel/Default)
-  DEPENDS+= @(PCI_SUPPORT||USB_SUPPORT||TARGET_ramips) +kmod-rt2x00-lib-kernel +kmod-lib-crc-ccitt +@DRIVER_11N_SUPPORT
+define KernelPackage/kernel-rt2800-lib
+$(call KernelPackage/kernel-rt2x00/Default)
+  DEPENDS+= @(PCI_SUPPORT||USB_SUPPORT||TARGET_ramips) \
+    +kmod-kernel-rt2x00-lib +kmod-lib-crc-ccitt +@DRIVER_11N_SUPPORT
   TITLE+= (rt2800 LIB)
   FILES:=$(LINUX_DIR)/drivers/net/wireless/rt2x00/rt2800lib.ko
   AUTOLOAD:=$(call AutoLoad,27,rt2800lib)
   KCONFIG:=CONFIG_RT2800_LIB=m
 endef
 
-define KernelPackage/rt2800-usb-kernel
-$(call KernelPackage/rt2x00-kernel/Default)
-  DEPENDS+= @USB_SUPPORT +kmod-rt2x00-usb-kernel +kmod-rt2800-lib-kernel +kmod-lib-crc-ccitt +rt2800-usb-firmware
+define KernelPackage/kernel-rt2800-usb
+$(call KernelPackage/kernel-rt2x00/Default)
+  DEPENDS+= @USB_SUPPORT +kmod-lib-crc-ccitt +rt2800-usb-firmware \
+    +kmod-kernel-rt2x00-usb +kmod-kernel-rt2800-lib
   TITLE+= (RT2870 USB)
   FILES:=$(LINUX_DIR)/drivers/net/wireless/rt2x00/rt2800usb.ko
   AUTOLOAD:=$(call AutoLoad,28,rt2800usb)
@@ -127,7 +135,7 @@ $(call KernelPackage/rt2x00-kernel/Default)
 endef
 
 $(eval $(call KernelPackage,kernel-wireless))
-$(eval $(call KernelPackage,rt2x00-lib-kernel))
-$(eval $(call KernelPackage,rt2x00-usb-kernel))
-$(eval $(call KernelPackage,rt2800-lib-kernel))
-$(eval $(call KernelPackage,rt2800-usb-kernel))
+$(eval $(call KernelPackage,kernel-rt2x00-lib))
+$(eval $(call KernelPackage,kernel-rt2x00-usb))
+$(eval $(call KernelPackage,kernel-rt2800-lib))
+$(eval $(call KernelPackage,kernel-rt2800-usb))
