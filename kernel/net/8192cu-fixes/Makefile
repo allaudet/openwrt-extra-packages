@@ -26,13 +26,15 @@ define KernelPackage/8192cu-fixes
   TITLE:=Realtek 8192cu driver v4.0.2 Fixed
   MAINTAINER:=Adrià Llaudet <allaudet@nakima.es>
   URL:=https://github.com/pvaret/rtl8192cu-fixes
-  DEPENDS:=+@DRIVER_11N_SUPPORT @USB_SUPPORT +@DRIVER_WEXT_SUPPORT +kmod-usb-core +kmod-kernel-wireless +hostapd-rtl871xdrv +rtl8192cu-firmware
+  DEPENDS:=+@DRIVER_11N_SUPPORT @USB_SUPPORT +@DRIVER_WEXT_SUPPORT \
+    +kmod-usb-core +hostapd-rtl871xdrv +kmod-mac80211 +rtl8192cu-firmware
   KCONFIG:=
   FILES:= $(PKG_BUILD_DIR)/8192cu.ko
 endef
 
 define KernelPackage/8192cu-fixes/description
-  This is a repackaging of Realtek's own 8192CU USB WiFi driver for Ubuntu 13.10 and later.
+  This is a repackaging of Realtek's own 8192CU USB WiFi driver
+  for Ubuntu 13.10 and later.
 endef
 
 MAKE_OPTS:= \

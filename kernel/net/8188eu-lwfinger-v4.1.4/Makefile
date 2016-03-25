@@ -32,7 +32,8 @@ define KernelPackage/8188eu-lwfinger-v4.1.4
   TITLE:=Realtek 8188EU (lwfinger) v4.1.4
   MAINTAINER:=Adrià Llaudet <allaudet@nakima.es>
   URL:=https://github.com/lwfinger/rtl8188eu
-  DEPENDS:=@USB_SUPPORT +@DRIVER_WEXT_SUPPORT +r8188eu-firmware +kmod-usb-core +hostapd-rtl871xdrv +kmod-kernel-wireless
+  DEPENDS:=@USB_SUPPORT +@DRIVER_WEXT_SUPPORT +kmod-usb-core \
+    +r8188eu-firmware +hostapd-rtl871xdrv +kmod-mac80211
   KCONFIG:=
   FILES:= $(PKG_BUILD_DIR)/8188eu.ko
 endef
