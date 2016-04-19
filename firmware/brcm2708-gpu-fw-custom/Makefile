@@ -11,7 +11,7 @@ include $(INCLUDE_DIR)/kernel.mk
 PKG_NAME:=brcm2708-gpu-fw-custom
 PKG_REV:=d3e6f4a27d87c5229ad6c74fa9022a9451046add
 PKG_VERSION:=20150620
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_SOURCE:=$(PKG_REV).tar.gz
 PKG_SOURCE_URL:=https://github.com/Hexxeh/rpi-firmware/archive/
@@ -31,22 +31,11 @@ endef
 
 define Package/brcm2708-gpu-fw-custom/description
   GPU and kernel boot firmware for brcm2708.
+  Compiled over kernel 3.18.16.
 endef
 
 define Build/Compile
 	true
-endef
-
-define Package/brcm2708-gpu-fw-custom/install
-	$(INSTALL_DIR) $(1)/opt
-	$(CP) $(PKG_BUILD_DIR)/vc/softfp/opt/vc $(1)/opt/
-
-	$(INSTALL_DIR) $(1)/etc/ld.so.conf.d
-	echo "/opt/vc/lib" > $(1)/etc/ld.so.conf.d/vc.conf
-
-	$(INSTALL_DIR) $(1)/usr/local/bin
-	find $(1)/opt/vc/bin/ -type f -exec basename {} \; | \
-		xargs -I ARG ln -s /opt/vc/bin/ARG $(1)/usr/local/bin
 endef
 
 define Build/InstallDev
@@ -59,6 +48,25 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/fixup_cd.dat $(KERNEL_BUILD_DIR)
 	$(CP) $(PKG_BUILD_DIR)/start_x.elf $(KERNEL_BUILD_DIR)
 	$(CP) $(PKG_BUILD_DIR)/fixup_x.dat $(KERNEL_BUILD_DIR)
+endef
+
+define Package/brcm2708-gpu-fw-custom/install
+	$(INSTALL_DIR) $(1)/opt/vc
+	$(CP) $(PKG_BUILD_DIR)/vc/softfp/opt/vc $(1)/opt/vc/softfp
+	$(CP) $(PKG_BUILD_DIR)/vc/hardfp/opt/vc $(1)/opt/vc/hardfp
+
+  ifdef CONFIG_HAS_FPU
+	ln -s /opt/vc/hardfp $(1)/opt/vc/default
+  else
+	ln -s /opt/vc/softfp $(1)/opt/vc/default
+  endif
+
+	$(INSTALL_DIR) $(1)/etc/ld.so.conf.d
+	echo "/opt/vc/default/lib" > $(1)/etc/ld.so.conf.d/vc.conf
+
+	$(INSTALL_DIR) $(1)/usr/local/bin
+	find $(1)/opt/vc/hardfp/bin/ -type f -exec basename {} \; | \
+		xargs -I ARG ln -s /opt/vc/default/bin/ARG $(1)/usr/local/bin
 endef
 
 $(eval $(call BuildPackage,brcm2708-gpu-fw-custom))
