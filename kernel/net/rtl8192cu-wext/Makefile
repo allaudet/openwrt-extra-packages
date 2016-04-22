@@ -16,24 +16,24 @@ PKG_REV:=master
 PKG_MD5SUM:=7b2594e4d4f090a182f702034cb3a841
 
 PKG_SOURCE:=$(PKG_REV).tar.gz
-PKG_SOURCE_URL:=https://github.com/pvaret/rtl8192cu-fixes/archive/
+PKG_SOURCE_URL:=https://github.com/pvaret/rtlrtl8192cu-wext/archive/
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)/rtl8192cu-fixes-$(PKG_REV)
+PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)/rtlrtl8192cu-wext-$(PKG_REV)
 
 include $(INCLUDE_DIR)/package.mk
 
-define KernelPackage/8192cu-fixes
+define KernelPackage/rtl8192cu-wext
   SUBMENU:=Wireless Drivers
   TITLE:=Realtek 8192CU (WEXT)
   MAINTAINER:=Adria Llaudet <allaudet@nakima.es>
-  URL:=https://github.com/pvaret/rtl8192cu-fixes
+  URL:=https://github.com/pvaret/rtlrtl8192cu-wext
   DEPENDS:=+@DRIVER_11N_SUPPORT @USB_SUPPORT +@DRIVER_WEXT_SUPPORT \
     +kmod-usb-core +rtl8192cu-firmware +hostapd-rtl871xdrv
   KCONFIG:=
   FILES:= $(PKG_BUILD_DIR)/8192cu.ko
 endef
 
-define KernelPackage/8192cu-fixes/description
+define KernelPackage/rtl8192cu-wext/description
   Realtek 8192CU wireless drivers with some fixes.
   This driver (v4.0.2_9000) works with WEXT.
 endef
@@ -48,9 +48,9 @@ define Build/Compile
 	$(MAKE) $(PKG_JOBS) -C $(PKG_BUILD_DIR) $(MAKE_OPTS)
 endef
 
-define KernelPackage/8192cu-fixes/install
+define KernelPackage/rtl8192cu-wext/install
 	$(INSTALL_DIR) $(1)/etc/modules.d/
 	echo "8192cu rtw_power_mgnt=0 rtw_enusbss=0" > $(1)/etc/modules.d/50-8192cu
 endef
 
-$(eval $(call KernelPackage,8192cu-fixes))
+$(eval $(call KernelPackage,rtl8192cu-wext))
