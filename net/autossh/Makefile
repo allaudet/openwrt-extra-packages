@@ -1,7 +1,7 @@
 #
-# Copyright (C) 2006-2012 OpenWrt.org
+# Copyright (C) 2015 Jian Chang <aa65535@live.com>
 #
-# This is free software, licensed under the GNU General Public License v2.
+# This is free software, licensed under the GNU General Public License v3.
 # See /LICENSE for more information.
 #
 
@@ -21,6 +21,7 @@ define Package/autossh
   SECTION:=net
   CATEGORY:=Network
   TITLE:=Autossh client
+  MAINTAINER:=Adria Llaudet <allaudet@nakima.es>
   URL:=http://www.harding.motd.ca/autossh/
   SUBMENU:=SSH
 endef
@@ -55,7 +56,7 @@ endef
 define Package/autossh/conffiles
 /etc/config/autossh
 endef
- 
+
 define Package/autossh/install
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/autossh $(1)/usr/sbin/
@@ -74,4 +75,3 @@ define Package/autossh/install
 endef
 
 $(eval $(call BuildPackage,autossh))
-

@@ -23,6 +23,7 @@ define Package/byobu
     SECTION:=utils
     CATEGORY:=Utilities
     TITLE:=Text-based window manager
+    MAINTAINER:=Xiangfu Liu <xiangfu@sharism.cc>
     URL:=https://launchpad.net/byobu
     DEPENDS:=+tmux +screen @BUSYBOX_CUSTOM @BUSYBOX_CONFIG_INSTALL @BUSYBOX_CONFIG_TTY
 endef
