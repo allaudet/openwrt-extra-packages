@@ -18,7 +18,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define KernelPackage/rtl871x
   SUBMENU:=Wireless Drivers
-  TITLE:=TL-WN725N V2 (RTL871X)
+  TITLE:= TP-Link RTL871X (8188EU) Wireless Driver
   MAINTAINER:=Adria Llaudet <allaudet@nakima.es>
   URL:=http://www.tp-link.es/download/TL-WN725N.html#Driver
   DEPENDS:=@USB_SUPPORT +kmod-usb-core +kmod-kernel-wireless
@@ -27,7 +27,8 @@ define KernelPackage/rtl871x
 endef
 
 define KernelPackage/rtl871x/description
-  TP-LINK Drivers with 8188EUS support
+  TL-WN725N V2 Drivers with 8188EUS support.
+  Support for kernel 2.6.18 ~ 3.19.3.
 endef
 
 define Build/Prepare
