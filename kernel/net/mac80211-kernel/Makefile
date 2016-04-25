@@ -44,13 +44,10 @@ define KernelPackage/mac80211-kernel
 endef
 
 define KernelPackage/mac80211-kernel/description
-  This package includes a non 'compat-wireless' version
-  of cfg80211.ko and mac80211.ko (i.e. the stock kernel version)
-  so do not build with the openwrt
-  kmod-cfg80211 or kmod-mac80211 packages built into the image
-  (they'll still have to be compiled as modules though).
-  Enabling kmod-mac80211 as a module is required to
-  enable the nl80211 support in all the wireless tools.
+  This package compiles cfg80211 and mac80211 from the kernel sources instead of
+  from the 'compat-wireless' ones.
+  Enabling kmod-mac80211 as a module is required to enable the nl80211 support
+  in all the wireless tools.
 endef
 
 MAKE_OPTS:= \
