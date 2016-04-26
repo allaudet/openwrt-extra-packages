@@ -53,4 +53,3 @@ endef
 
 $(eval $(call PyPackage,python-itsdangerous))
 $(eval $(call BuildPackage,python-itsdangerous))
-

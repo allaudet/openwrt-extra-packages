@@ -53,4 +53,3 @@ endef
 
 $(eval $(call PyPackage,python-picamera))
 $(eval $(call BuildPackage,python-picamera))
-

@@ -53,4 +53,3 @@ endef
 
 $(eval $(call PyPackage,python-zope.interface))
 $(eval $(call BuildPackage,python-zope.interface))
-

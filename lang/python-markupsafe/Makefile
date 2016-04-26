@@ -53,4 +53,3 @@ endef
 
 $(eval $(call PyPackage,python-markupsafe))
 $(eval $(call BuildPackage,python-markupsafe))
-

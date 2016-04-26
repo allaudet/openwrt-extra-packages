@@ -54,4 +54,3 @@ endef
 
 $(eval $(call PyPackage,python-flask))
 $(eval $(call BuildPackage,python-flask))
-

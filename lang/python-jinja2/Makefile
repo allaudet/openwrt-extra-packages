@@ -55,4 +55,3 @@ endef
 
 $(eval $(call PyPackage,python-jinja2))
 $(eval $(call BuildPackage,python-jinja2))
-

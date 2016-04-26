@@ -53,4 +53,3 @@ endef
 
 $(eval $(call PyPackage,python-requests))
 $(eval $(call BuildPackage,python-requests))
-

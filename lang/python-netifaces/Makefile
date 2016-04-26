@@ -53,4 +53,3 @@ endef
 
 $(eval $(call PyPackage,python-netifaces))
 $(eval $(call BuildPackage,python-netifaces))
-

@@ -53,4 +53,3 @@ endef
 
 $(eval $(call PyPackage,python-dnspython))
 $(eval $(call BuildPackage,python-dnspython))
-

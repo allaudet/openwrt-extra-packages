@@ -53,4 +53,3 @@ endef
 
 $(eval $(call PyPackage,python-spidev))
 $(eval $(call BuildPackage,python-spidev))
-
