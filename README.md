@@ -1,4 +1,4 @@
-# openwrt-extra-packages
+# Openwrt Extra Packages
 OpenWrt extra feed packages
 
 ## Repository usage
@@ -21,22 +21,28 @@ OpenWrt extra feed packages
 
 ## Package List
 
-### Kernel packages
-* brcm2708-gpu-fw-custom
-
 ### Language packages
-* python-dev
 
-### Library packages
-* opencv-3
-* libopenssl-dev
-* libffi-dev
+### Python3
 
-### Network packages
-* autossh
-* git-fix
-
-### Utility packages
-* byobu
-* i2c-tools
-* ldconfig-backbone
+* python3-appdirs
+* python3-can
+* python3-click
+* python3-flask
+* python3-flask-assets
+* python3-flask-breadcrumbs
+* python3-flask-login
+* python3-flask-menu
+* python3-frozendict
+* python3-gunicorn
+* python3-itsdangerous
+* python3-jinja2
+* python3-markupsafe
+* python3-packaging
+* python3-pyjade
+* python3-pyparsing
+* python3-pytest-runner
+* python3-setuptools_scm
+* python3-six
+* python3-webassets
+* python3-werkzeug
